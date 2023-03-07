@@ -8,7 +8,7 @@ let IndexMain = () => {
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
-    setName(location.pathname)
+    setName(location.pathname);
   }, [location]);
   const goLink = (v) => {
     navigate(v, {
@@ -27,7 +27,7 @@ let IndexMain = () => {
             首页
           </Tabbar.Item>
           <Tabbar.Item name="/list" icon={<Search />}>
-            列表
+            交易记录
           </Tabbar.Item>
           <Tabbar.Item name="/my" icon={<FriendsO />}>
             我的

@@ -3,6 +3,7 @@ import { createHashRouter, RouterProvider, Navigate } from "react-router-dom";
 import IndexMain from "../components/IndexMain";
 import Home from "../views/Home";
 import My from "../views/My";
+import List from "../views/List";
 
 const routers = createHashRouter([
   {
@@ -16,6 +17,10 @@ const routers = createHashRouter([
       {
         path: "/home-index",
         element: <Home />,
+      },
+      {
+        path: "/list",
+        element: <List />
       },
       {
         path: "/my",
