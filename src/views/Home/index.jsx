@@ -4,7 +4,7 @@ let Home = () => {
   return (
     <>
       <div className="title">这是首页</div>
-      <Button>我是内容</Button>
+      <Button>我是内容新</Button>
     </>
   );
 };
