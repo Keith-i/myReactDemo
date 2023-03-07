@@ -1,11 +1,15 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { Tabbar } from "react-vant";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FriendsO, HomeO, Search } from "@react-vant/icons";
 
 let IndexMain = () => {
   const [name, setName] = useState("/home");
   const navigate = useNavigate();
+  const location = useLocation();
+  useEffect(() => {
+    setName(location.pathname)
+  }, [location]);
   const goLink = (v) => {
     navigate(v, {
       replace: true,
