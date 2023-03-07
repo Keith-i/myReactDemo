@@ -14,7 +14,7 @@ const routers = createHashRouter([
     element: <IndexMain />,
     children: [
       {
-        path: "/home",
+        path: "/home-index",
         element: <Home />,
       },
       {

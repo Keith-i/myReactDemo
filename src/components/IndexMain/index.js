@@ -23,7 +23,7 @@ let IndexMain = () => {
       </div>
       <div className="demo-tabbar">
         <Tabbar value={name} onChange={(v) => goLink(v)}>
-          <Tabbar.Item name="/home" icon={<HomeO />}>
+          <Tabbar.Item name="/home-index" icon={<HomeO />}>
             首页
           </Tabbar.Item>
           <Tabbar.Item name="/list" icon={<Search />}>
