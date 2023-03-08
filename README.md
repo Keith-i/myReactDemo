@@ -29,3 +29,8 @@
 ## 单位转换插件 px 转 vw
 
 > ### postcss-px-to-viewport
+
+<br />
+
+## scss作用域解决方法
+> 使用 css module 方法解决
