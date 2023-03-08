@@ -2,3 +2,30 @@
   font-size: 14px;
   color: red;
 }
+.itembox {
+  height: 160px;
+}
+
+.groupbox {
+  .gridbox {
+    display: flex;
+    flex-wrap: wrap;
+    .vanitem {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      flex-basis: 25%;
+      box-sizing: border-box;
+      padding: 16px 8px;
+      img {
+        width: 45px;
+        height: 45px;
+      }
+      .vanname {
+        font-size: 14px;
+        margin-top: 12px;
+      }
+    }
+  }
+}
