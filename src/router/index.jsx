@@ -8,7 +8,7 @@ import List from "@/views/List";
 const routers = createHashRouter([
   {
     path: "/",
-    element: <Navigate to="/home" />,
+    element: <Navigate to="/home-index" />,
   },
   {
     path: "/",
