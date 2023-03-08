@@ -20,13 +20,17 @@ const routers = createHashRouter([
       },
       {
         path: "/list",
-        element: <List />
+        element: <List />,
       },
       {
         path: "/my",
         element: <My />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <div>页面不存在</div>,
   },
 ]);
 
