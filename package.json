@@ -39,11 +39,13 @@
     ]
   },
   "devDependencies": {
+    "css-loader": "^6.7.3",
     "node-sass": "^7.0.3",
     "postcss": "^8.4.21",
     "postcss-loader": "^7.0.2",
     "postcss-px-to-viewport": "^1.1.1",
     "postcss-pxtorem": "^6.0.0",
-    "sass-loader": "^13.2.0"
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1"
   }
 }
