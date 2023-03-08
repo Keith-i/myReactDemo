@@ -1,9 +1,9 @@
 import React from "react";
 import { createHashRouter, RouterProvider, Navigate } from "react-router-dom";
-import IndexMain from "../components/IndexMain";
-import Home from "../views/Home";
-import My from "../views/My";
-import List from "../views/List";
+import IndexMain from "@/components/IndexMain";
+import Home from "@/views/Home";
+import My from "@/views/My";
+import List from "@/views/List";
 
 const routers = createHashRouter([
   {
