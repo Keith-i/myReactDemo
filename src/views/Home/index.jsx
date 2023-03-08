@@ -22,7 +22,7 @@ let MySwiperItem = () => {
 let CardBox = (props) => {
   return (
     <>
-      <div>选择卡种回收</div>
+      <div className="headtit">选择卡种回收</div>
       <div className="groupbox">
         <div className="gridbox">
           {props.list.map((item) => (
