@@ -1,6 +1,8 @@
 // import "./style.scss";
 import styles from "./style.module.scss";
 import React from "react";
+import { Cell } from "react-vant";
+import { ShopO, PhoneO, Idcard, Alipay } from "@react-vant/icons";
 console.log(styles);
 // 顶部内容
 const Topcom = () => {
@@ -31,12 +33,43 @@ const Wallet = () => {
   );
 };
 
+// 列表
+const CellListMy = () => {
+  return (
+    <>
+      <Cell title="提现记录" icon={<ShopO />} isLink>
+        <div></div>
+      </Cell>
+      <Cell title="手机号" icon={<PhoneO />} isLink>
+        <div></div>
+      </Cell>
+      <Cell title="银行卡" icon={<Idcard />} isLink>
+        <div></div>
+      </Cell>
+      <Cell title="银行卡" icon={<Alipay />} isLink>
+        <div></div>
+      </Cell>
+    </>
+  );
+};
+
+// const My = () => {
+//   return (
+//     <>
+//       <Topcom />
+//       <Wallet />
+//       <CellListMy />
+//     </>
+//   );
+// };
+
 class My extends React.Component {
   render() {
     return (
       <>
         <Topcom />
         <Wallet />
+        <CellListMy />
       </>
     );
   }
