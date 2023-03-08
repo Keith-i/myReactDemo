@@ -1,7 +1,54 @@
-.headtit {
-  font-size: 16px;
-  color: red;
-  .myt {
-    color: orange
+.headbox {
+  display: flex;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+  .txtbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    .name {
+      margin-bottom: 4px;
+      font-size: 18px;
+      color: #333;
+    }
+    .userid {
+      font-size: 14px;
+      color: #666;
+    }
+  }
+}
+
+.pricebox {
+  height: 196px;
+  padding: 0 18px;
+  background: #fff;
+  .pricecenter {
+    height: 100%;
+    padding-top: 18px;
+    border-radius: 10px;
+    color: #6c3400;
+    text-align: center;
+    background: #f9c001;
+    .tit {
+      font-size: 14px;
+      text-align: center;
+    }
+    .pricemm {
+      font-size: 34px;
+      font-weight: 700;
+    }
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 210px;
+      height: 40px;
+      margin-top: 18px;
+      border-radius: 20px;
+      background: #fff;
+    }
   }
 }
