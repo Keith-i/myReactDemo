@@ -1,5 +1,7 @@
 import "./style.scss";
 import { Button, Swiper, Toast } from "react-vant";
+import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment, incrementByAmount } from "@/redux/counter/counterSlice";
 
 // 轮播内容
 let MySwiperItem = () => {
@@ -27,10 +29,7 @@ let CardBox = (props) => {
         <div className="gridbox">
           {props.list.map((item) => (
             <div className="vanitem" key={item.id}>
-              <img
-                src={item.img_url}
-                alt={item.img_url}
-              />
+              <img src={item.img_url} alt={item.img_url} />
               <div className="vanname">{item.name}</div>
             </div>
           ))}
@@ -42,6 +41,9 @@ let CardBox = (props) => {
 
 // 主要内容
 let Home = () => {
+  const count = useSelector((state) => state.counterReducer.value);
+  console.log(count);
+  const dispatch = useDispatch();
   const cardList = [
     {
       id: 1,
@@ -51,8 +53,9 @@ let Home = () => {
     },
     {
       id: 2,
-      name: '联通话费卡',
-      img_url: 'http://mtest.mf178.cn/uploads/mf_card/card_kind_config/card_kind_config1611905119.png'
+      name: "联通话费卡",
+      img_url:
+        "http://mtest.mf178.cn/uploads/mf_card/card_kind_config/card_kind_config1611905119.png",
     },
   ];
   return (
@@ -63,6 +66,10 @@ let Home = () => {
       <CardBox list={cardList} />
       <div className="title">这是首页</div>
       <Button>我是内容新</Button>
+      <span>{count}</span>
+      <Button onClick={() => dispatch(increment())}>+++</Button>
+      <Button onClick={() => dispatch(decrement())}>---</Button>
+      <Button onClick={() => dispatch(incrementByAmount(100))}>自改内容</Button>
     </>
   );
 };
