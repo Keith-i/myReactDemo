@@ -26,6 +26,11 @@
 
 <br />
 
+## 状态管理工具
+> ### react-redux
+
+<br />
+
 ## 单位转换插件 px 转 vw
 
 > ### postcss-px-to-viewport
