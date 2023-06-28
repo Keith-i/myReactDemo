@@ -1,7 +1,12 @@
 import "./style.scss";
 import { Button, Swiper, Toast } from "react-vant";
 import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment, incrementByAmount } from "@/redux/counter/counterSlice";
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+} from "@/redux/counter/counterSlice";
+import { useNavigate } from "react-router-dom";
 
 // 轮播内容
 let MySwiperItem = () => {
@@ -42,6 +47,7 @@ let CardBox = (props) => {
 // 主要内容
 let Home = () => {
   const count = useSelector((state) => state.counterReducer.value);
+  const navigate = useNavigate();
   console.log(count);
   const dispatch = useDispatch();
   const cardList = [
@@ -70,6 +76,9 @@ let Home = () => {
       <Button onClick={() => dispatch(increment())}>+++</Button>
       <Button onClick={() => dispatch(decrement())}>---</Button>
       <Button onClick={() => dispatch(incrementByAmount(100))}>自改内容</Button>
+      <Button onClick={() => navigate("/tool-list")}>
+        跳转到工具列表
+      </Button>
     </>
   );
 };
