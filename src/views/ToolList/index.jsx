@@ -1,11 +1,18 @@
 import "./style.scss";
 import { Grid } from "react-vant";
+import { useNavigate } from "react-router-dom";
 
 // 工具项
 let ToolItem = (props) => {
+  let navigate = useNavigate();
   // 跳转到工具详情
   let toToolDetail = (item) => {
     console.log(item, "工具id");
+    if (item.path) {
+      navigate(item.path);
+    } else {
+      return;
+    }
   };
   return (
     <>
@@ -25,6 +32,7 @@ let ToolList = () => {
     {
       id: 1,
       name: "提取颜色版",
+      path: "/color-board",
     },
     {
       id: 2,

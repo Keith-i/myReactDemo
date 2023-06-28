@@ -5,6 +5,7 @@ import Home from "@/views/Home";
 import My from "@/views/My";
 import List from "@/views/List";
 import ToolList from "@/views/ToolList";
+import ColorBoard from "@/views/ColorBoard";
 
 const routers = createHashRouter([
   {
@@ -30,6 +31,10 @@ const routers = createHashRouter([
       {
         path: "/tool-list",
         element: <ToolList />,
+      },
+      {
+        path: "/color-board",
+        element: <ColorBoard />,
       },
     ],
   },
