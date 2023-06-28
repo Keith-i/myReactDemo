@@ -36,8 +36,8 @@ let ColorList = (props) => {
 };
 
 const ColorBoard = () => {
-  const [uploadData, setUploadData] = useState([]);
   const [colorListData, setColorListData] = useState([]); // 色卡
+  const [uploadData, setUploadData] = useState([]);
 
   // RGBA 值
   const rgbaString = (rgb) => {
@@ -59,7 +59,14 @@ const ColorBoard = () => {
 
   useEffect(() => {
     console.log(uploadData, "uploadData");
-
+    // if (colorListData) {
+    //   let hasColorList = colorListData.some(
+    //     (item) => item.id === uploadData[uploadData.length - 1].key
+    //   );
+    //   if (hasColorList) {
+    //     return;
+    //   }
+    // }
     if (uploadData && uploadData.length > 0) {
       const image = new Image();
       image.onload = () => {
