@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Uploader } from "react-vant";
+import colorthief from "colorthief";
 
 const ColorBoard = () => {
   const [uploadData, setUploadData] = useState([]);
