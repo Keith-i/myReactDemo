@@ -59,14 +59,14 @@ const ColorBoard = () => {
 
   useEffect(() => {
     console.log(uploadData, "uploadData");
-    // if (colorListData) {
-    //   let hasColorList = colorListData.some(
-    //     (item) => item.id === uploadData[uploadData.length - 1].key
-    //   );
-    //   if (hasColorList) {
-    //     return;
-    //   }
-    // }
+    if (colorListData) {
+      let hasColorList = colorListData.some(
+        (item) => item.id === uploadData[uploadData.length - 1].key
+      );
+      if (hasColorList) {
+        return;
+      }
+    }
     if (uploadData && uploadData.length > 0) {
       const image = new Image();
       image.onload = () => {
@@ -89,7 +89,7 @@ const ColorBoard = () => {
 
       image.src = uploadData[uploadData.length - 1].url;
     }
-  }, [uploadData]);
+  }, [uploadData, colorListData]);
 
   return (
     <div>
