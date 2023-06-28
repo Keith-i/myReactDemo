@@ -9,12 +9,11 @@ let ColorList = (props) => {
     <>
       <div>
         {props.colorListData.map((item, index) => (
-          <div key={index}>
+          <div key={item.id}>
             <div className="flexbox">
               <span>主要颜色：</span>
               <div
                 className="color-item"
-                key={index}
                 style={{ background: item.colorPrimary }}
               ></div>
             </div>
@@ -52,9 +51,19 @@ const ColorBoard = () => {
     return `#${hex}`;
   };
 
+  // 图片变化时调用
   const onChangeFn = (fileList) => {
     console.log(fileList, "fileList");
     setUploadData(fileList);
+  };
+
+  // 删除图片调用
+  const onDeleteFn = (item) => {
+    console.log(item, "删除");
+    const updatedColorListData = colorListData.filter(
+      (item) => item.id !== item.key
+    );
+    setColorListData(updatedColorListData);
   };
 
   useEffect(() => {
@@ -93,7 +102,12 @@ const ColorBoard = () => {
 
   return (
     <div>
-      <Uploader accept="image/*" value={uploadData} onChange={onChangeFn} />
+      <Uploader
+        accept="image/*"
+        value={uploadData}
+        onDelete={onDeleteFn}
+        onChange={onChangeFn}
+      />
       <ColorList colorListData={colorListData} />
       <div
         onClick={() => {
