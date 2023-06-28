@@ -4,6 +4,7 @@ import IndexMain from "@/components/IndexMain";
 import Home from "@/views/Home";
 import My from "@/views/My";
 import List from "@/views/List";
+import ToolList from "@/views/ToolList";
 
 const routers = createHashRouter([
   {
@@ -25,6 +26,10 @@ const routers = createHashRouter([
       {
         path: "/my",
         element: <My />,
+      },
+      {
+        path: "/tool-list",
+        element: <ToolList />,
       },
     ],
   },
