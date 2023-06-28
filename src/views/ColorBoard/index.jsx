@@ -72,6 +72,7 @@ const ColorBoard = () => {
         console.log("16位色", hexString(colorPrimary));
 
         let objItem = {
+          id: uploadData[uploadData.length - 1].key,
           colorPrimary: rgbaString(colorPrimary),
           colorPaletteRGBA: colorPalette.map((item) => rgbaString(item)),
           colorPaletteHEX: colorPalette.map((item) => hexString(item)),
