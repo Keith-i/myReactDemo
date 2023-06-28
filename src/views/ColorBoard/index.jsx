@@ -59,20 +59,25 @@ const ColorBoard = () => {
 
   // 删除图片调用
   const onDeleteFn = (item) => {
-    console.log(item, "删除");
-    const updatedColorListData = colorListData.filter(
-      (item) => item.id !== item.key
-    );
-    setColorListData(updatedColorListData);
+    console.log(item.key, "删除");
+    console.log(colorListData, "MMM");
+    // const updatedColorListData = colorListData.filter(
+    //   (item) => item.id !== item.key
+    // );
+    // console.log(updatedColorListData, "1111");
+    // setColorListData(updatedColorListData);
+    // console.log(colorListData, "ColorListData====");
   };
 
   useEffect(() => {
     console.log(uploadData, "uploadData");
-    if (colorListData) {
+    console.log(colorListData, "colorListData");
+    if (colorListData.length > 0 && uploadData.length > 0) {
       let hasColorList = colorListData.some(
         (item) => item.id === uploadData[uploadData.length - 1].key
       );
       if (hasColorList) {
+        console.log("这里执行");
         return;
       }
     }
@@ -86,7 +91,6 @@ const ColorBoard = () => {
         console.log("色卡:", colorPalette);
         console.log("RGBA色:", rgbaString(colorPrimary));
         console.log("16位色", hexString(colorPrimary));
-
         let objItem = {
           id: uploadData[uploadData.length - 1].key,
           colorPrimary: rgbaString(colorPrimary),
