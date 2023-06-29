@@ -16,10 +16,10 @@ let ColorList = (props) => {
           <div key={item.id}>
             <div className="flexbox">
               <span>主要颜色：</span>
-              <CopyToClipboard text={item.colorPrimaryRGBA} onCopy={handleCopy}>
+              <CopyToClipboard text={item.colorPrimaryHEX} onCopy={handleCopy}>
                 <div
                   className="color-item"
-                  style={{ background: item.colorPrimaryRGBA }}
+                  style={{ background: item.colorPrimaryHEX }}
                 ></div>
               </CopyToClipboard>
             </div>
