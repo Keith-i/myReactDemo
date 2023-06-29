@@ -1,0 +1,15 @@
+.box {
+  padding: 10px;
+  .inpbox {
+    padding: 10px 0;
+    .textareabox {
+        padding: 10px;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+  }
+  .outbox {
+    padding-top: 30px;
+  }
+}
