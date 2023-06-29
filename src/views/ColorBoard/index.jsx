@@ -1,3 +1,5 @@
+// 图片颜色提取器
+
 import "./style.scss";
 import React, { useState, useEffect } from "react";
 import { Uploader, Toast } from "react-vant";
