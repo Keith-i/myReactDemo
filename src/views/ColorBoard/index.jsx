@@ -2,7 +2,6 @@ import "./style.scss";
 import React, { useState, useEffect } from "react";
 import { Uploader } from "react-vant";
 import ColorThief from "colorthief";
-import { set } from "date-fns";
 
 // 提取颜色列表
 let ColorList = (props) => {
