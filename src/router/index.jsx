@@ -6,6 +6,7 @@ import My from "@/views/My";
 import List from "@/views/List";
 import ToolList from "@/views/ToolList";
 import ColorBoard from "@/views/ColorBoard";
+import JsonFormatting from "@/views/JsonFormatting";
 
 const routers = createHashRouter([
   {
@@ -35,6 +36,10 @@ const routers = createHashRouter([
       {
         path: "/color-board",
         element: <ColorBoard />,
+      },
+      {
+        path: "/json-format",
+        element: <JsonFormatting />,
       },
     ],
   },

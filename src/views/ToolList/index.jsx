@@ -36,7 +36,8 @@ let ToolList = () => {
     },
     {
       id: 2,
-      name: "提取颜色版2",
+      name: "JSON格式化",
+      path: "/json-format",
     },
     {
       id: 3,
