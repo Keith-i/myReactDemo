@@ -26,11 +26,16 @@ let ColorList = (props) => {
             <div className="flexbox">
               <span>调色板：</span>
               {item.colorPaletteHEX.map((item2, index2) => (
-                <div
-                  className="color-item"
+                <CopyToClipboard
+                  text={item2}
+                  onCopy={handleCopy}
                   key={index2}
-                  style={{ background: item2 }}
-                ></div>
+                >
+                  <div
+                    className="color-item"
+                    style={{ background: item2 }}
+                  ></div>
+                </CopyToClipboard>
               ))}
             </div>
           </div>
