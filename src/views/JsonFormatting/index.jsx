@@ -9,11 +9,10 @@ const JsonFormatting = () => {
 
   // 格式化
   const formatFn = () => {
+    let mytest = cleanJsonString(jsonDataStr);
+    console.log(mytest, "mytest");
     try {
-      let validJsonString = cleanJsonString(jsonDataStr).replace(
-        /([a-zA-Z0-9]+)(?=:)/g,
-        '"$1"'
-      );
+      let validJsonString = cleanJsonString(jsonDataStr);
       let obj = JSON.parse(validJsonString);
       setJsonData(obj);
       console.log(obj, "obj");
@@ -41,7 +40,20 @@ const JsonFormatting = () => {
     const cleanedStrWithoutInterferingSymbols =
       cleanedStrWithoutMultilineStrings.replace(regexInterferingSymbols, "");
 
-    return cleanedStrWithoutInterferingSymbols.trim();
+    // 去除多余换行符和空白字符
+    const cleanedStrWithoutExtraSpaces =
+      cleanedStrWithoutInterferingSymbols.replace(/(\r?\n|\s)+/g, "");
+
+    // 删除最后一个属性后面的逗号
+    const regexLastComma = cleanedStrWithoutExtraSpaces.replace(
+      /,(?=\s*[\]}])/g,
+      ""
+    );
+
+    // 将属性名加上双引号
+    const debleyh = regexLastComma.replace(/([a-zA-Z0-9]+)(?=:)/g, '"$1"');
+
+    return debleyh.trim();
   };
 
   return (
