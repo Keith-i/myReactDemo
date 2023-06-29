@@ -2,6 +2,7 @@ import "./style.scss";
 import React, { useState, useEffect } from "react";
 import { Uploader } from "react-vant";
 import ColorThief from "colorthief";
+import { set } from "date-fns";
 
 // 提取颜色列表
 let ColorList = (props) => {
@@ -37,6 +38,7 @@ let ColorList = (props) => {
 const ColorBoard = () => {
   const [colorListData, setColorListData] = useState([]); // 色卡
   const [uploadData, setUploadData] = useState([]);
+  const [deling, setDeling] = useState(false); // 是否正在删除
 
   // RGBA 值
   const rgbaString = (rgb) => {
@@ -61,6 +63,11 @@ const ColorBoard = () => {
   const onDeleteFn = (item) => {
     console.log(item.key, "删除");
     console.log(colorListData, "MMM");
+    setDeling(true);
+    const updatedColorListData = colorListData.filter(
+      (color) => color.id !== item.key
+    );
+    setColorListData(updatedColorListData);
     // const updatedColorListData = colorListData.filter(
     //   (item) => item.id !== item.key
     // );
@@ -72,6 +79,10 @@ const ColorBoard = () => {
   useEffect(() => {
     console.log(uploadData, "uploadData");
     console.log(colorListData, "colorListData");
+    if (deling) {
+      setDeling(false);
+      return
+    }
     if (colorListData.length > 0 && uploadData.length > 0) {
       let hasColorList = colorListData.some(
         (item) => item.id === uploadData[uploadData.length - 1].key
@@ -97,12 +108,12 @@ const ColorBoard = () => {
           colorPaletteRGBA: colorPalette.map((item) => rgbaString(item)),
           colorPaletteHEX: colorPalette.map((item) => hexString(item)),
         };
-        setColorListData((prevData) => [...prevData, objItem]);
+        setColorListData((prevData) => [...prevData, objItem]);        
       };
 
       image.src = uploadData[uploadData.length - 1].url;
     }
-  }, [uploadData, colorListData]);
+  }, [uploadData, colorListData, deling]);
 
   return (
     <div>
