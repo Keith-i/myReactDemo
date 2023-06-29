@@ -1,10 +1,14 @@
 import "./style.scss";
 import React, { useState, useEffect } from "react";
-import { Uploader } from "react-vant";
+import { Uploader, Toast } from "react-vant";
 import ColorThief from "colorthief";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 // 提取颜色列表
 let ColorList = (props) => {
+  const handleCopy = (item) => {
+    Toast.info("复制成功");
+  };
   return (
     <>
       <div>
@@ -12,10 +16,12 @@ let ColorList = (props) => {
           <div key={item.id}>
             <div className="flexbox">
               <span>主要颜色：</span>
-              <div
-                className="color-item"
-                style={{ background: item.colorPrimary }}
-              ></div>
+              <CopyToClipboard text={item.colorPrimaryRGBA} onCopy={handleCopy}>
+                <div
+                  className="color-item"
+                  style={{ background: item.colorPrimaryRGBA }}
+                ></div>
+              </CopyToClipboard>
             </div>
             <div className="flexbox">
               <span>调色板：</span>
@@ -80,7 +86,7 @@ const ColorBoard = () => {
     console.log(colorListData, "colorListData");
     if (deling) {
       setDeling(false);
-      return
+      return;
     }
     if (colorListData.length > 0 && uploadData.length > 0) {
       let hasColorList = colorListData.some(
@@ -103,11 +109,12 @@ const ColorBoard = () => {
         console.log("16位色", hexString(colorPrimary));
         let objItem = {
           id: uploadData[uploadData.length - 1].key,
-          colorPrimary: rgbaString(colorPrimary),
+          colorPrimaryRGBA: rgbaString(colorPrimary),
+          colorPrimaryHEX: hexString(colorPrimary),
           colorPaletteRGBA: colorPalette.map((item) => rgbaString(item)),
           colorPaletteHEX: colorPalette.map((item) => hexString(item)),
         };
-        setColorListData((prevData) => [...prevData, objItem]);        
+        setColorListData((prevData) => [...prevData, objItem]);
       };
 
       image.src = uploadData[uploadData.length - 1].url;
