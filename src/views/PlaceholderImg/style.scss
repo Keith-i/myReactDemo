@@ -1,0 +1,25 @@
+.input-item {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  .inptit {
+    margin-right: 20px;
+  }
+  span {
+    padding: 0 6px;
+  }
+  .inpgrop {
+    display: flex;
+    align-items: center;
+    input {
+      width: 100px;
+    }
+  }
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
