@@ -1,5 +1,40 @@
 import "./style.scss";
+import { useState } from "react";
 import { Button, hooks } from "react-vant";
+import { ColorSelector } from "color-selector-react";
+import "color-selector-react/dist/es/index.css";
+
+let ColorSelectorFn = (props) => {
+  const [visible, setVisible] = useState(false);
+  const { colorVal } = props;
+  return (
+    <>
+      <div
+        style={{ position: "relative", display: "inline-block", margin: 60 }}
+      >
+        <div
+          color={colorVal}
+          onClick={() => setVisible(!visible)}
+          style={{
+            width: 20,
+            height: 20,
+            border: "1px solid #ccc",
+            backgroundColor: colorVal,
+          }}
+        />
+        {
+          <ColorSelector
+            style={{ position: "absolute", zIndex: 3, backgroundColor: "#fff" }}
+            color={colorVal}
+            visible={visible}
+            onChange={({ color }) => console.log(color)}
+            onVisibleChange={(v) => setVisible(v)}
+          />
+        }
+      </div>
+    </>
+  );
+};
 
 let PlaceholderImg = () => {
   //   let imgsrc =
@@ -14,7 +49,7 @@ let PlaceholderImg = () => {
   let postImgFn = () => {
     console.log(state);
     let url = `https://iph.href.lu/${state.width}x${state.height}?text=${state.text}&fg=674ea7&bg=8e7cc3`;
-    console.log(url)
+    console.log(url);
     updateState({
       imgsrc: url,
     });
@@ -44,7 +79,9 @@ let PlaceholderImg = () => {
       </div>
       <div className="input-item">
         <div className="inptit">文字颜色</div>
-        <div>选择文字颜色</div>
+        <div>
+          <ColorSelectorFn />
+        </div>
       </div>
       <div className="input-item">
         <div className="inptit">背景颜色</div>
