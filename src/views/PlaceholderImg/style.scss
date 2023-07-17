@@ -2,10 +2,16 @@
   padding: 16px;
   font-size: 18px;
 }
+
 .imgcom {
   display: block;
   margin: 10px auto;
 }
+
+.input-com {
+  padding: 10px 20px;
+}
+
 .input-item {
   display: flex;
   align-items: center;
@@ -24,9 +30,11 @@
     }
   }
 }
+
 .pdbtom {
   padding-bottom: 50px;
 }
+
 .btn {
   display: flex;
   justify-content: center;

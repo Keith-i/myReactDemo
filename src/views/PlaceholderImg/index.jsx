@@ -69,49 +69,51 @@ let PlaceholderImg = () => {
       <div className="pdbtom">
         <div className="imgtit">图片占位符</div>
         <img alt="" src={state.imgsrc} className="imgcom" />
-        <div className="input-item">
-          <div className="inptit">图片大小</div>
-          <div className="inpgrop">
+        <div className="input-com">
+          <div className="input-item">
+            <div className="inptit">图片大小</div>
+            <div className="inpgrop">
+              <input
+                value={state.width}
+                type="number"
+                placeholder="宽"
+                onChange={(e) => updateState({ width: e.target.value })}
+              />
+              <span>×</span>
+              <input
+                value={state.height}
+                type="number"
+                placeholder="高"
+                onChange={(e) => updateState({ height: e.target.value })}
+              />
+            </div>
+          </div>
+          <div className="input-item">
+            <div className="inptit">文字颜色</div>
+            <div>
+              <ColorSelectorFn
+                onSelectClick={(colorVal) => handColorSel(colorVal, "fg")}
+                colorVal={state.fg}
+              />
+            </div>
+          </div>
+          <div className="input-item">
+            <div className="inptit">背景颜色</div>
+            <div>
+              <ColorSelectorFn
+                onSelectClick={(colorVal) => handColorSel(colorVal, "bg")}
+                colorVal={state.bg}
+              />
+            </div>
+          </div>
+          <div className="input-item">
+            <div className="inptit">显示文字</div>
             <input
-              value={state.width}
-              type="number"
-              placeholder="宽"
-              onChange={(e) => updateState({ width: e.target.value })}
-            />
-            <span>×</span>
-            <input
-              value={state.height}
-              type="number"
-              placeholder="高"
-              onChange={(e) => updateState({ height: e.target.value })}
+              value={state.text}
+              placeholder="内容"
+              onChange={(e) => updateState({ text: e.target.value })}
             />
           </div>
-        </div>
-        <div className="input-item">
-          <div className="inptit">文字颜色</div>
-          <div>
-            <ColorSelectorFn
-              onSelectClick={(colorVal) => handColorSel(colorVal, "fg")}
-              colorVal={state.fg}
-            />
-          </div>
-        </div>
-        <div className="input-item">
-          <div className="inptit">背景颜色</div>
-          <div>
-            <ColorSelectorFn
-              onSelectClick={(colorVal) => handColorSel(colorVal, "bg")}
-              colorVal={state.bg}
-            />
-          </div>
-        </div>
-        <div className="input-item">
-          <div className="inptit">显示文字</div>
-          <input
-            value={state.text}
-            placeholder="内容"
-            onChange={(e) => updateState({ text: e.target.value })}
-          />
         </div>
         <div className="btn">
           <Button type="primary" onClick={postImgFn}>
