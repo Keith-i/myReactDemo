@@ -43,6 +43,14 @@ let PlaceholderImg = () => {
         </div>
       </div>
       <div className="input-item">
+        <div className="inptit">文字颜色</div>
+        <div>选择文字颜色</div>
+      </div>
+      <div className="input-item">
+        <div className="inptit">背景颜色</div>
+        <div>背景颜色</div>
+      </div>
+      <div className="input-item">
         <div className="inptit">显示文字</div>
         <input
           value={state.text}
