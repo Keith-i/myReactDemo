@@ -67,8 +67,8 @@ let PlaceholderImg = () => {
   return (
     <>
       <div className="pdbtom">
-        <div>图片占位符</div>
-        <img alt="" src={state.imgsrc} />
+        <div className="imgtit">图片占位符</div>
+        <img alt="" src={state.imgsrc} className="imgcom" />
         <div className="input-item">
           <div className="inptit">图片大小</div>
           <div className="inpgrop">
