@@ -6,11 +6,11 @@ import "color-selector-react/dist/es/index.css";
 
 let ColorSelectorFn = (props) => {
   const [visible, setVisible] = useState(false);
-  const { colorVal } = props;
+  const { colorVal, onSelectClick } = props;
   return (
     <>
       <div
-        style={{ position: "relative", display: "inline-block", margin: 60 }}
+        style={{ position: "relative", display: "inline-block"}}
       >
         <div
           color={colorVal}
@@ -27,7 +27,7 @@ let ColorSelectorFn = (props) => {
             style={{ position: "absolute", zIndex: 3, backgroundColor: "#fff" }}
             color={colorVal}
             visible={visible}
-            onChange={({ color }) => console.log(color)}
+            onChange={({ color }) => onSelectClick(color)}
             onVisibleChange={(v) => setVisible(v)}
           />
         }
@@ -43,16 +43,27 @@ let PlaceholderImg = () => {
     imgsrc: "",
     width: 123,
     height: 123,
-    text: "",
+    text: "", // 文字
+    fg: "", // 设置文字颜色
+    bg: "", // 设置背景色
   });
 
   let postImgFn = () => {
-    console.log(state);
-    let url = `https://iph.href.lu/${state.width}x${state.height}?text=${state.text}&fg=674ea7&bg=8e7cc3`;
-    console.log(url);
+    console.log(state,);
+    let fg = state.fg.slice(1);
+    let bg = state.bg.slice(1);
+    console.log(fg, bg)
+    let url = `https://iph.href.lu/${state.width}x${state.height}?text=${state.text}&fg=${fg}&bg=${bg}`;
+    console.log(url, 'kkk');
     updateState({
       imgsrc: url,
     });
+  };
+
+  //   颜色选择
+  let handColorSel = (val, keyName) => {
+    console.log(val, keyName, "颜色");
+    updateState({ [keyName]: val });
   };
 
   return (
@@ -80,12 +91,20 @@ let PlaceholderImg = () => {
       <div className="input-item">
         <div className="inptit">文字颜色</div>
         <div>
-          <ColorSelectorFn />
+          <ColorSelectorFn
+            onSelectClick={(colorVal) => handColorSel(colorVal, "fg")}
+            colorVal={state.fg}
+          />
         </div>
       </div>
       <div className="input-item">
         <div className="inptit">背景颜色</div>
-        <div>背景颜色</div>
+        <div>
+          <ColorSelectorFn
+            onSelectClick={(colorVal) => handColorSel(colorVal, "bg")}
+            colorVal={state.bg}
+          />
+        </div>
       </div>
       <div className="input-item">
         <div className="inptit">显示文字</div>
