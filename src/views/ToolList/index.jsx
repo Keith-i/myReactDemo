@@ -41,7 +41,8 @@ let ToolList = () => {
     },
     {
       id: 3,
-      name: "提取颜色版3",
+      name: "占位图片",
+      path: '/placeholder-img'
     },
     {
       id: 4,

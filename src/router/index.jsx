@@ -7,6 +7,7 @@ import List from "@/views/List";
 import ToolList from "@/views/ToolList";
 import ColorBoard from "@/views/ColorBoard";
 import JsonFormatting from "@/views/JsonFormatting";
+import PlaceholderImg from "@/views/PlaceholderImg";
 
 const routers = createHashRouter([
   {
@@ -40,6 +41,10 @@ const routers = createHashRouter([
       {
         path: "/json-format",
         element: <JsonFormatting />,
+      },
+      {
+        path: "/placeholder-img",
+        element: <PlaceholderImg />,
       },
     ],
   },
