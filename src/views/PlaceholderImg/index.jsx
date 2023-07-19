@@ -51,7 +51,7 @@ let PlaceholderImg = () => {
     let fg = state.fg.slice(1);
     let bg = state.bg.slice(1);
     console.log(fg, bg);
-    let url = `https://iph.href.lu/${state.width}x${state.height}?text=${state.text}&fg=${fg}&bg=${bg}`;
+    let url = `http://iph.href.lu/${state.width}x${state.height}?text=${state.text}&fg=${fg}&bg=${bg}`;
     console.log(url, "kkk");
     updateState({
       imgsrc: url,
